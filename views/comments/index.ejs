@@ -6,6 +6,13 @@
     <title>Index</title>
 </head>
 <body>
-    
+    <h1>Comments</h1>
+    <ul>
+        
+        <% for(let c of comments){ %>
+            <li><%= c.comment %> - <strong><%= c.username %> </strong> </li>
+        <% } %> 
+
+    </ul>
 </body>
 </html>

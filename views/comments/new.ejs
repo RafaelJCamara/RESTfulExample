@@ -6,6 +6,20 @@
     <title>New comment</title>
 </head>
 <body>
-    
+    <h1>Create a new comment</h1>
+    <form action="/comments" method="POST">
+        <section>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="user">   
+        </section>
+        
+        <section>
+            <label for="comments">Comment:</label>
+            <br>
+            <textarea name="comment" id="comments" cols="30" rows="10"></textarea>
+        </section>
+        <br>
+        <button>Submit</button>
+    </form>
 </body>
 </html>

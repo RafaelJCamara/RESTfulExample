@@ -45,8 +45,25 @@ let comments = [
 ]
 
 
+//Index route (display all comments)
+app.get("/comments", (req,res)=>{
+    res.render("comments/index", {comments});
+});
 
+//Post route from creating new comment form submission
+app.post("/comments", (req,res)=>{
+    //get new comment info and save on the array
+    const id = uuid();
+    const username = req.body.user;
+    const comment = req.body.comment;
+    comments.push({id,username,comment});
+    res.redirect("/comments");
+});
 
+//New comment route (form to create new comment)
+app.get("/comments/new", (req,res)=>{
+    res.render("comments/new");
+});
 
 app.listen(3000, ()=>{
     console.log("Listening on port 3000...");
