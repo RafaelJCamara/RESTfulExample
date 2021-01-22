@@ -64,6 +64,42 @@ app.get("/comments/new", (req,res)=>{
     res.render("comments/new");
 });
 
+//Route to show details for a specific comment
+app.get("/comments/:id", (req,res)=>{
+    const {id} = req.params;
+    
+    //search in array where the comment object is
+    const comment = comments.find(c => c.id===id);
+
+    res.render("comments/show",{comment});
+});
+
+
+//Get route to edit comment
+app.get("/comments/:id/edit", (req,res)=>{
+
+    const {id} = req.params;
+    
+    //search in array where the comment object is
+    const comment = comments.find(c => c.id===id);
+
+    res.render("comments/edit", {comment} );
+});
+
+//Patch route to edit comment
+app.patch("/comments/:id", (req,res)=>{
+    //find the comment
+    const {id} = req.params;
+    
+    //search in array where the comment object is
+    const comment = comments.find(c => c.id===id);
+
+    comment.comment = req.body.comment;
+
+    res.redirect("/comments");
+});
+
+
 app.listen(3000, ()=>{
     console.log("Listening on port 3000...");
 });

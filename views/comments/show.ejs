@@ -6,6 +6,11 @@
     <title>Show comment</title>
 </head>
 <body>
-    
+    <h1>Comment info</h1>
+    <section>
+        <p> <%= comment.comment %> - <strong> <%= comment.username %>  </strong> </p>
+    </section>
+    <a href="/comments">Go back to index</a>
+    <a href="/comments/<%= comment.id %>/edit">Edit comment</a>
 </body>
 </html>
