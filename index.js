@@ -99,6 +99,13 @@ app.patch("/comments/:id", (req,res)=>{
     res.redirect("/comments");
 });
 
+//Route to delete a comment
+app.delete("/comments/:id", (req,res)=>{
+    const {id} = req.params;
+    comments = comments.filter(c=>c.id!==id);
+    res.redirect("/comments");
+});
+
 
 app.listen(3000, ()=>{
     console.log("Listening on port 3000...");
