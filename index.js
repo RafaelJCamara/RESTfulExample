@@ -54,8 +54,7 @@ app.get("/comments", (req,res)=>{
 app.post("/comments", (req,res)=>{
     //get new comment info and save on the array
     const id = uuid();
-    const username = req.body.user;
-    const comment = req.body.comment;
+    const { username , comment} = req.body;
     comments.push({id,username,comment});
     res.redirect("/comments");
 });
